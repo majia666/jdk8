@@ -94,17 +94,17 @@ public class LambdaTest1 {
     public void test5(){
         filterEmployee(employees,(e)->e.getAge()>40).forEach(System.out::println);
         Optional.of("=======================").ifPresent(System.out::println);
-        filterEmployee(employees,(e)->e.getAge()<5000).forEach(System.out::println);
+        filterEmployee(employees,(e)->e.getSalary()<5000).forEach(System.out::println);
     }
     // 优化方式4 stream API
     @Test
     public void test6(){
         employees.stream().filter((e)->e.getAge()<30).forEach(System.out::println);
         Optional.of("=======================").ifPresent(System.out::println);
-        employees.stream().filter((e)->e.getAge()<8000).forEach(System.out::println);
+        employees.stream().filter((e)->e.getSalary()<8000).forEach(System.out::println);
         Optional.of("=======================").ifPresent(System.out::println);
         employees.stream()
-                .filter((e)->e.getAge()<8000)
+                .filter((e)->e.getSalary()<8000)
                 .map(Employee::getName)
                 .forEach(System.out::println);
 
